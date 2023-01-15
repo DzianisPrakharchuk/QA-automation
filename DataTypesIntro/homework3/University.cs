@@ -7,7 +7,10 @@ internal class University
     public Employee[] Employees { get; set; }
     public Building[] Buildings { get; set; }
     public AdressBuilding OfficialAdress { get; set; }
-    public University(Employee rector, Employee[] employees, Building[] buildings, AdressBuilding officialAdress)
+    public University(
+        Employee rector, Employee[] employees, 
+        Building[] buildings, 
+        AdressBuilding officialAdress)
     {
         this.Rector = rector;
         this.Employees = employees;

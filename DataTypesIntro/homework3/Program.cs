@@ -1,40 +1,103 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-internal class Program
+﻿namespace homework3
 {
-    static void Main(string[] args)
+    internal class Program
     {
-        Employee marchenko = new Employee("Aleksandr", "Marchenko ", "Teacher", 4525);
-        Employee ivashko = new Employee("Vadim", "Ivashko ", "Teacher", 2133);
-        Employee kozlov = new Employee("Aleksei", "Kozlov ", "Rector", 4556);
 
-        Employee[] employees = { marchenko, ivashko, kozlov };
+        static void Main(string[] args)
+        {
+            Employee marchenko = new
+            ("Aleksandr",
+            "Marchenko ",
+            "Teacher",
+            4525);
+            Employee ivashko = new
+                ("Vadim",
+                "Ivashko ",
+                "Teacher",
+                2133);
+            Employee kozlov = new
+                ("Aleksei",
+                "Kozlov ",
+                "Rector", 4556);
 
-        Room auxiliary = new Room(1, "Auxiliary room");
-        Room lectureHall = new Room(2, "Lecture hall");
-        Room laboratory = new Room(3, "Laboratory");
-        Room suminarRoom = new Room(4, "Suminar room");
-       
-        Room[] RoomsBuilding1 = { laboratory, lectureHall, suminarRoom, auxiliary };
-        Room[] RoomsBuilding2 = { laboratory, lectureHall, suminarRoom, auxiliary };
-        Room[] RoomsBuilding3 = { laboratory, lectureHall, suminarRoom, auxiliary };
+            Employee[] employees =
+            {
+            marchenko,
+            ivashko,
+            kozlov
+        };
 
-        AdressBuilding officialAdrss = new AdressBuilding("Minsk", "Matusevicha", 22);
-        AdressBuilding adressBuilding2 = new AdressBuilding("Minsk", "Matusevicha", 23);
-        AdressBuilding adressBuilding3 = new AdressBuilding("Minsk", "Matusevicha", 24);
+            Room auxiliary = new
+                (1, "Auxiliary room");
+            Room lectureHall = new
+                (2, "Lecture hall");
+            Room laboratory = new
+                (3, "Laboratory");
+            Room suminarRoom = new
+                (4, "Suminar room");
 
+            Room[] RoomsBuilding1 =
+            {
+            laboratory,
+            lectureHall,
+            suminarRoom,
+            auxiliary
+        };
 
+            Room[] RoomsBuilding2 =
+            {
+            laboratory,
+            lectureHall,
+            suminarRoom,
+            auxiliary
+        };
 
-        Building building1 = new Building(RoomsBuilding1, officialAdrss);
-        Building building2 = new Building(RoomsBuilding1, adressBuilding2);
-        Building building3 = new Building(RoomsBuilding1, adressBuilding3);
+            Room[] RoomsBuilding3 =
+            {
+            laboratory,
+            lectureHall,
+            suminarRoom,
+            auxiliary
+        };
 
-        Building[] buildings = { building1, building2, building3 };
+            AdressBuilding officialAdrss = new
+                ("Minsk",
+                "Matusevicha",
+                22);
+            AdressBuilding adressBuilding2 = new
+                ("Minsk",
+                "Matusevicha",
+                23);
+            AdressBuilding adressBuilding3 = new
+                ("Minsk",
+                "Matusevicha",
+                24);
 
-        University university = new University(kozlov, employees, buildings, officialAdrss);
+            Building building1 = new
+                (RoomsBuilding1,
+                officialAdrss,
+                234);
+            Building building2 = new
+                (RoomsBuilding2,
+                adressBuilding2,
+                235);
+            Building building3 = new
+                (RoomsBuilding3,
+                adressBuilding3,
+                236);
 
-        Console.WriteLine(university.Rector.LastName);
+            Building[] buildings =
+            {
+            building1,
+            building2,
+            building3
+        };
+
+            University university = new(kozlov, employees, buildings, officialAdrss);
+
+            Console.WriteLine(university.Rector.LastName);
+        }
     }
 }
+
 //

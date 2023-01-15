@@ -1,15 +1,27 @@
 ﻿using System;
 
-
-
     internal class Room
     {
-        public int RoomNumber { get; set; }
-        public string RoomName { get; set; }
-
-        public Room(int number, string name)
+    private int _roomNumber;
+        public int RoomNumber
+    {
+        get
         {
-        RoomNumber = number;
-        RoomName = name;
+            return _roomNumber;
+        }
+        set
+        {
+            if (value > 0 && value < 1000)
+            {
+                _roomNumber = value;
+            }
         }
     }
+        public string RoomType { get; set; }
+        public Room(int number, string type)
+        {
+            _roomNumber = number;
+            RoomType = type;
+        }
+    }
+
