@@ -2,6 +2,8 @@
 {
     public class Adress
     {
+        public const int MaxHouseNumber = 1000;
+        public const int MinHouseNumber= 0;
         public string City { get; set; }
         public string Street { get; set; }
         private int _houseNumber;
@@ -13,7 +15,7 @@
             }
             set
             {
-                if (value > 0 && value < 1000)
+                if (value >= MinHouseNumber && value <= MaxHouseNumber)
                 {
                     _houseNumber = value;
                 }

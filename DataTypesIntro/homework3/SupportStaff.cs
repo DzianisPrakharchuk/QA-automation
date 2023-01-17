@@ -9,7 +9,7 @@ internal class SupportStaff :  UniversityEmployee
     }
     public override string GetOfficialDuties()
     {
-        return $"Profession: " + Profession;
+        return $"Profession: {Profession}";
     }
 }
 //Создать класс SupportStaff- наследник от UniversityEmployee, включающий

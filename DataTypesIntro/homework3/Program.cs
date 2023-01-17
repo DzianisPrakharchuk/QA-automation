@@ -189,40 +189,7 @@ internal class Program
         golovko,
         kiselev
         };
-
-        Room auxiliary = new
-            (1, "Auxiliary room");
-        Room lectureHall = new
-            (2, "Lecture hall");
-        Room laboratory = new
-            (3, "Laboratory");
-        Room suminarRoom = new
-            (4, "Suminar room");
-
-        Room[] RoomsBuilding1 =
-        {
-        laboratory,
-        lectureHall,
-        suminarRoom,
-        auxiliary
-        };
-
-        Room[] RoomsBuilding2 =
-        {
-        laboratory,
-        lectureHall,
-        suminarRoom,
-        auxiliary
-        };
-
-        Room[] RoomsBuilding3 =
-        {
-        laboratory,
-        lectureHall,
-        suminarRoom,
-        auxiliary
-        };
-
+        
         AdressBuilding officialAdrss = new
             ("Minsk",
             "Matusevicha",
@@ -236,19 +203,24 @@ internal class Program
             "Matusevicha",
             24);
 
-        Building building1 = new
-            (RoomsBuilding1,
-            officialAdrss,
-            234);
-        Building building2 = new
-            (RoomsBuilding2,
-            adressBuilding2,
-            235);
-        Building building3 = new
-            (RoomsBuilding3,
-            adressBuilding3,
-            236);
-
+        Building building1 = new Building(new Room[]{
+            new(1, "Auxiliary room"), 
+            new(2, "Lecture hall"),
+            new(5, "Laboratory"),
+            new(4, "Suminar room")}, officialAdrss, 234);
+    
+        Building building2 = new Building(new Room[]{
+            new(1, "Laboratory"),
+            new(3, "Lecture hall"),
+            new(5, "Lecture hall"),
+            new(2, "Suminar room")}, adressBuilding2, 235);
+        
+        Building building3 = new Building(new Room[]{
+            new(3, "Auxiliary room"),
+            new(9, "Lecture hall"),
+            new(5, "Laboratory"), 
+            new(7, "Lecture hall")}, adressBuilding3, 236);
+        
         Building[] buildings =
         {
         building1,
@@ -264,6 +236,5 @@ internal class Program
 
         Console.WriteLine(university.Rector.Person.LastName);
         Console.ReadLine();
-     
     }
-  }
+}

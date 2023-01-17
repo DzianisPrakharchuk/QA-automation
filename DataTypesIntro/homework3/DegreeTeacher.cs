@@ -12,7 +12,7 @@ internal class DegreeTeacher : Teacher
     }
     public override string GetOfficialDuties()
     {
-        return "Specialization: " + Course.NameCourse + " Course: " + Course.CourseDescription + " Rank: " + Rank + " Science degree: " + ScienceDegree;
+        return $"Specialization: {Course.NameCourse} Course: {Course.CourseDescription} Rank: {Rank}  Science degree: {ScienceDegree}";
     }
 }
 
