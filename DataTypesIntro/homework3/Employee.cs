@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿namespace homework3;
 public class Employee
 {
     public string FirstName { get; set; }

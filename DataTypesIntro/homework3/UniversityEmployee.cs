@@ -1,18 +1,17 @@
-﻿namespace homework2
-{ 
+﻿namespace homework3;
 
-public abstract class UniversityEmployee
+internal abstract class UniversityEmployee
 {
-    public string Person { get; set; }
+    public Person Person { get; set; }
+    public string Profession { get; set; }
     public int TaxId { get; set; }
-        public UniversityEmployee(string person, int taxId)
-        {
-
-            Person = person;
-            TaxId = taxId;
-        }
-        public abstract string GetOfficialDuties();
+    public UniversityEmployee(Person person, int taxId, string profession)
+    {
+        Person = person;
+        Profession = profession;
+        TaxId = taxId;
     }
+    public abstract string GetOfficialDuties();
 }
 
 

@@ -1,19 +1,19 @@
-﻿using homework3;
-using System;
-
-internal class Building : UniversityAssets
+﻿namespace homework3
 {
-    public Room[] Rooms { get; set; }
-    public AdressBuilding AddressBulding { get; set; }
-    public Building(
-        Room[] rooms, 
-        AdressBuilding addressBulding, 
-        int idNumber)
-    :base(idNumber)
+    internal class Building : UniversityAssets
+    {
+        public Room[] Rooms { get; set; }
+        public AdressBuilding AddressBulding { get; set; }
+        public Building(
+            Room[] rooms,
+            AdressBuilding addressBulding,
+            int idNumber)
+        : base(idNumber)
         {
             Rooms = rooms;
             AddressBulding = addressBulding;
         }
+    }
 }
 
 

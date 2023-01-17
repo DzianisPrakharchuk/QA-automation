@@ -1,7 +1,7 @@
-﻿using System;
+﻿namespace homework3;
 
-    internal class Room
-    {
+ internal class Room
+{
     private int _roomNumber;
         public int RoomNumber
     {

@@ -1,14 +1,14 @@
-﻿using System;
-
+﻿namespace homework3;
 
 internal class University
 {
-    public Employee Rector { get; set; }
-    public Employee[] Employees { get; set; }
+    public SupportStaff Rector { get; set; }
+    public UniversityEmployee[] Employees { get; set; }
     public Building[] Buildings { get; set; }
     public AdressBuilding OfficialAdress { get; set; }
     public University(
-        Employee rector, Employee[] employees, 
+        SupportStaff rector, 
+        UniversityEmployee[] employees, 
         Building[] buildings, 
         AdressBuilding officialAdress)
     {
