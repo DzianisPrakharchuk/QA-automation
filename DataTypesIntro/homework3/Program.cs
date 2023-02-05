@@ -1,4 +1,6 @@
-﻿namespace homework3;
+﻿using System;
+
+namespace homework3;
 
 internal class Program
 {
@@ -11,7 +13,7 @@ internal class Program
         Candidate candidate1 = new(
             new Person("Aliaksei", "Kazlou",
             new Adress("Zhodino", "Mira", 15, 12)),
-            new SubjectScore[]
+            new List<SubjectScore>
             {
             new( "Language", 8 ),
             new( "Math", 10 )
@@ -20,7 +22,7 @@ internal class Program
         Candidate candidate2 = new(
             new Person("Maksim", "Rubanau",
             new Adress("Minsk", "Aerodromnaya", 1, 22)),
-            new SubjectScore[]
+            new List<SubjectScore>
             {
             new ("Language", 7),
             new ("Math", 9)
@@ -29,7 +31,7 @@ internal class Program
         Candidate candidate3 = new(
             new Person("Alesia", "Zabavskaia",
             new Adress("Minsk", "Matysevicha", 12, 16)),
-            new SubjectScore[]
+            new List<SubjectScore>
             {
             new ("Language", 6),
             new ("Math", 7)
@@ -38,7 +40,7 @@ internal class Program
         Candidate candidate4 = new(
             new Person("Svetlana", "Zenkovich",
             new Adress("Minsk", "Krasivaya", 66, 31)),
-            new SubjectScore[]
+            new List<SubjectScore>
             {
             new ("Language", 5),
             new ("Math", 9)
@@ -47,13 +49,13 @@ internal class Program
         Candidate candidate5 = new(
             new Person("Victor", "Acramchuk",
             new Adress("Minsk", "Pushkina", 18, 44)),
-            new SubjectScore[]
+            new List<SubjectScore>
             {
             new ("Language", 4),
             new ("Math", 6)
             });
 
-        Candidate[] array =
+        List<Candidate> candidates= new List<Candidate>
         {
             candidate1,
             candidate2,
@@ -65,16 +67,16 @@ internal class Program
         Console.WriteLine(" Streets where students live: ");
         Console.WriteLine(("").PadRight(30, '-'));
 
-        foreach (Candidate candidate in array)
+        foreach (Candidate candidate in candidates)
         {
             string street = candidate.Person.Adress.Street;
             Console.WriteLine(street);
         }
 
         int maxScore = 0;
-        foreach (Candidate candidate in array)
+        foreach (Candidate candidate in candidates)
         {
-            SubjectScore[] subjectScores = candidate.SubjectScores;
+            List<SubjectScore> subjectScores = candidate.SubjectScores;
             foreach (SubjectScore ss in subjectScores)
             {
                 if (ss.SubjectName.Equals("Language") && maxScore < ss.Score)
@@ -133,7 +135,7 @@ internal class Program
             new Person("Andrei", "Korneev", 
             new Adress("Minsk", "Fabritsiusa", 56, 65)), 6006, "plumber");
         
-        UniversityEmployee[] universityEmployees =
+        List<UniversityEmployee> universityEmployees = new List<UniversityEmployee>
         {
             marchenko,
             ivashko,
@@ -183,7 +185,7 @@ internal class Program
             SupportStaff (new Person("Anatoly", "Kiselev",
             new Adress("Zhodino", "Pobedy", 15, 12)), 4556, "Rector");
 
-        UniversityEmployee[] employees =
+        List<UniversityEmployee> employees = new List<UniversityEmployee>
         {
         bondarenko,
         golovko,
@@ -203,25 +205,25 @@ internal class Program
             "Matusevicha",
             24);
 
-        Building building1 = new Building(new Room[]{
+        Building building1 = new Building(new List<Room>{
             new(1, "Auxiliary room"), 
             new(2, "Lecture hall"),
             new(5, "Laboratory"),
             new(4, "Suminar room")}, officialAdrss, 234);
     
-        Building building2 = new Building(new Room[]{
+        Building building2 = new Building(new List<Room>{
             new(1, "Laboratory"),
             new(3, "Lecture hall"),
             new(5, "Lecture hall"),
             new(2, "Suminar room")}, adressBuilding2, 235);
         
-        Building building3 = new Building(new Room[]{
+        Building building3 = new Building(new List<Room>{
             new(3, "Auxiliary room"),
             new(9, "Lecture hall"),
             new(5, "Laboratory"), 
             new(7, "Lecture hall")}, adressBuilding3, 236);
         
-        Building[] buildings =
+        List<Building> buildings = new List<Building>
         {
         building1,
         building2,
@@ -238,3 +240,6 @@ internal class Program
         Console.ReadLine();
     }
 }
+
+//homework4
+//Для всех сущностей проекта, использующих  массивы, перейти к использованию  List

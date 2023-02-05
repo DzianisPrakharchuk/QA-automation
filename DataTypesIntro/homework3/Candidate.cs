@@ -4,8 +4,8 @@ namespace homework3
 public class Candidate
 {
     public Person Person { get; set; }
-    public SubjectScore[] SubjectScores { get; set; }
-    public Candidate(Person person, SubjectScore[] subjectScores)
+    public List<SubjectScore> SubjectScores { get; set; }
+    public Candidate(Person person, List<SubjectScore> subjectScores)
     {
     Person = person;
     SubjectScores = subjectScores;

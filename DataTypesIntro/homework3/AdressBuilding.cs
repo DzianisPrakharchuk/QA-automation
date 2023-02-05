@@ -27,5 +27,19 @@ public class AdressBuilding
         Street = street;
         _buildingNumber = buildingNumber;
     }
+    public override bool Equals(object? obj)
+    {
+        if (obj != null && obj is AdressBuilding adress)
+        {
+            return City == adress.City 
+                && Street == adress.Street 
+                && _buildingNumber == adress._buildingNumber;
+        }
+        return false;
+    }
+    public override int GetHashCode()
+    {
+        return City.GetHashCode() + Street.GetHashCode() + _buildingNumber.GetHashCode();
+    }
 }
 

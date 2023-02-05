@@ -12,6 +12,20 @@ internal abstract class UniversityEmployee
         TaxId = taxId;
     }
     public abstract string GetOfficialDuties();
+
+    public override bool Equals(object? obj)
+    {
+        if (obj != null && obj is UniversityEmployee employee)
+        {
+            return TaxId == employee.TaxId;
+        }   
+            return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return TaxId.GetHashCode();
+    }
 }
 
 
