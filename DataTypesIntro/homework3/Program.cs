@@ -176,10 +176,16 @@ internal class Program
            new Adress("Minsk", "Lesnaya", 15, 18)), 4525,
            new Course("Math", "Theory"));
         
-        Teacher golovko = new
+        Teacher golovkoO = new
            Teacher (new Person("Oleg", "Golovko ",
            new Adress("Minsk", "Svobody", 22, 14)), 2234,
            new Course("Teoretical Mechanic", "TMM"));
+
+        Teacher golovkoI = new
+           Teacher(new Person("Ivan", "Golovko ",
+           new Adress("Minsk", "Pravdy", 12, 11)), 2134,
+           new Course("Byology", "Theory"));
+
 
         SupportStaff kiselev = new
             SupportStaff (new Person("Anatoly", "Kiselev",
@@ -188,7 +194,8 @@ internal class Program
         List<UniversityEmployee> employees = new List<UniversityEmployee>
         {
         bondarenko,
-        golovko,
+        golovkoO,
+        golovkoI,
         kiselev
         };
         
@@ -238,8 +245,86 @@ internal class Program
 
         Console.WriteLine(university.Rector.Person.LastName);
         Console.ReadLine();
-    }
-}
+
 
 //homework4
 //Для всех сущностей проекта, использующих  массивы, перейти к использованию  List
+//homework5
+//5.1 Вывести на экран всех сотрудников университета с фамилией,//начинающейся на определенную букву (по выбору).
+//Данный список должен быть отсортирован поTaxId сотрудника 
+
+        Console.WriteLine("Lastname start with S:");
+        var selectedEmployee = new List<UniversityEmployee>();
+        selectedEmployee = universityEmployees
+            .Where(p => p.Person.LastName.StartsWith("S"))
+            .OrderBy(p => p.TaxId)
+            .ToList();
+
+        foreach (UniversityEmployee employee in selectedEmployee)
+        {
+            Console.WriteLine($"{employee.Person.LastName} {employee.TaxId}");
+        }
+        //5.2Вывести на экран всех преподавателей университета, читающих определенный курс  (по выбору., один и тот
+        //же курс может читаться несколькими преподавателями).
+
+        Console.WriteLine("Teachers  reading a course in theoretical mechanics:");
+        var courseEmployee = new List<UniversityEmployee>();
+        courseEmployee = universityEmployees
+             .Where(p => p is Teacher teacher && teacher.Course.NameCourse == "theoretical mechanics")
+    .ToList();
+
+        foreach (UniversityEmployee employee in courseEmployee)
+        {
+            Console.WriteLine($"{employee.Person.FirstName} {employee.Person.LastName}");
+        }
+//5.3 Вывести на экран TaxID и должностные обязанности каждого сотрудника (только эту информацию)
+        Console.WriteLine("TaxId and responsibilities:");
+
+        var SortResponsibilitiesList = employees
+            .Select(universityEmployee => universityEmployee.TaxId.ToString() + " " +
+                universityEmployee.GetOfficialDuties())
+            .ToList();
+
+        foreach (var taxIdResponsibilities in SortResponsibilitiesList)
+        {
+            Console.WriteLine(taxIdResponsibilities);
+        }
+        //5.4 Вывести на экран адреса всех зданий, в который есть комната с определенным номером (по выбору)
+
+        Console.WriteLine("Buildings with number room 3:");
+
+        var SortBuildings = new List<Building>();
+
+        SortBuildings = buildings
+            .Where(p => p.Rooms.
+                Select(room => room.RoomNumber)
+                .Any(x => x == 3))
+            .ToList();
+
+        foreach (Building building in SortBuildings)
+        {
+            Console.WriteLine($"{building.AddressBulding.City} {building.AddressBulding.Street} {building.AddressBulding.BuildingNumber}");
+        }
+
+        //5.5 Вывести на экран адрес здания с максимальным количеством комнат в нем
+        Console.WriteLine("building with  maximum count of rooms:");
+        var largestBuildings = buildings
+
+            .Where(p => p.Rooms.Count == buildings.Select(x => x.Rooms.Count)
+            .Max());
+
+        foreach (Building building in largestBuildings)
+        {
+            Console.WriteLine($"{building.AddressBulding.City} {building.AddressBulding.Street} {building.AddressBulding.BuildingNumber}");
+        }
+
+        //5.6 Вывести на экран самую часто встречающуюся фамилию сотрудника, и число таких сотрудников
+        Console.WriteLine("the most popular lastname of the employee, and quantity employees:");
+        var mostPopularLastName = employees
+            .GroupBy(p => p.Person.LastName)
+            .MaxBy(x => x.Count());
+
+        Console.WriteLine($"{mostPopularLastName.Key} {mostPopularLastName.Count()}");
+
+    }
+}
