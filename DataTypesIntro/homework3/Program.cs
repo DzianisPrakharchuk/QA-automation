@@ -1,14 +1,13 @@
-﻿using System;
+﻿using homework3;
+using System;
 
-namespace homework3;
+//homework1
+//Создать массив из 5 абитуриентов (Candidate), заполнить его 
+//Вывести список всех улиц, на которых живут абитуриенты 
 
 internal class Program
 {
-    //homework1
-    //Создать массив из 5 абитуриентов (Candidate), заполнить его 
-    //Вывести список всех улиц, на которых живут абитуриенты 
-
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
         Candidate candidate1 = new(
             new Person("Aliaksei", "Kazlou",
@@ -55,7 +54,7 @@ internal class Program
             new ("Math", 6)
             });
 
-        List<Candidate> candidates= new List<Candidate>
+        List<Candidate> candidates = new List<Candidate>
         {
             candidate1,
             candidate2,
@@ -63,9 +62,9 @@ internal class Program
             candidate4,
             candidate5
         };
-
+        Console.WriteLine("".PadRight(80, '-'));
         Console.WriteLine(" Streets where students live: ");
-        Console.WriteLine(("").PadRight(30, '-'));
+       
 
         foreach (Candidate candidate in candidates)
         {
@@ -86,7 +85,7 @@ internal class Program
             }
         }
         Console.WriteLine($"Max scor for Language: \n {maxScore}");
-        
+
 
 
         //homework2 
@@ -94,47 +93,47 @@ internal class Program
         //Вывести на консоль только всех преподавателей
 
         var marchenko = new Teacher(
-            new Person("Aleksandr", "Marchenko", 
-            new Adress("Minsk", "Mira", 23, 75)), 3488, 
+            new Person("Aleksandr", "Marchenko",
+            new Adress("Minsk", "Mira", 23, 75)), 3488,
             new Course("machine parts", "introduction to engineering"));
-        
+
         var ivashko = new Teacher(
-            new Person("Vadim", "Ivashko", 
-            new Adress("Minsk", "Bechtereva", 8, 27)), 3456, 
+            new Person("Vadim", "Ivashko",
+            new Adress("Minsk", "Bechtereva", 8, 27)), 3456,
             new Course("philosophy", "philosophy in economics"));
-        
+
         var kozlov = new Teacher(
-            new Person("Aleksei", "Kozlov", 
-            new Adress("Zhodino", "Mashinostroitlei", 15, 33)), 8456, 
+            new Person("Aleksei", "Kozlov",
+            new Adress("Zhodino", "Mashinostroitlei", 15, 33)), 8456,
             new Course("engineering graphics", "design basics"));
 
         var astashevich = new DegreeTeacher(
             new Person("Dmitry", "Astashevich",
-            new Adress("Minsk", "Volodarskogo", 56, 41)), 6678, 
+            new Adress("Minsk", "Volodarskogo", 56, 41)), 6678,
             new Course("economics", "trade relations"), "Bachelor's degree", "assistant professor");
-       
+
         var yakimovich = new DegreeTeacher(
-            new Person("Oleg", "Yakimovich", 
+            new Person("Oleg", "Yakimovich",
             new Adress("Minsk", "Dzrginskogo", 34, 81)), 9974,
             new Course("theoretical mechanics", "kinematics"), "Master's degree", "Professor");
-        
+
         var maslovskaya = new DegreeTeacher(
-            new Person("Kristina", "Maslovskaya", 
-            new Adress("Minsk", "Proletarskaya", 21, 55)), 3423, 
+            new Person("Kristina", "Maslovskaya",
+            new Adress("Minsk", "Proletarskaya", 21, 55)), 3423,
             new Course("material resistance", "deformation theory"), "Doctoral degree", "Professor");
-        
+
         var svirid = new SupportStaff(
             new Person("Dmitry", "Svirid",
             new Adress("Minsk", "Umanskaya", 8, 5)), 4444, "mechanic");
-       
+
         var saveliev = new SupportStaff(
-            new Person("Nikolai", "Saveliev", 
+            new Person("Nikolai", "Saveliev",
             new Adress("Minsk", "Krasivaya", 4, 18)), 3534, "an electrician");
-        
+
         var korneev = new SupportStaff(
-            new Person("Andrei", "Korneev", 
+            new Person("Andrei", "Korneev",
             new Adress("Minsk", "Fabritsiusa", 56, 65)), 6006, "plumber");
-        
+
         List<UniversityEmployee> universityEmployees = new List<UniversityEmployee>
         {
             marchenko,
@@ -147,17 +146,17 @@ internal class Program
             saveliev,
             korneev
         };
-
+        Console.WriteLine("".PadRight(80, '-'));
         Console.WriteLine(" University employees: ");
-        Console.WriteLine(("").PadRight(80, '-'));
+        
 
         foreach (var UniversityEmployee in universityEmployees)
         {
             Console.WriteLine($"{UniversityEmployee.Person.FirstName} {UniversityEmployee.Person.LastName} {UniversityEmployee.GetOfficialDuties()}\n");
         }
-
+        Console.WriteLine("".PadRight(80, '-'));
         Console.WriteLine(" University teachers : ");
-        Console.WriteLine(("").PadRight(80, '-'));
+        
 
         foreach (var UniversityEmployee in universityEmployees)
         {
@@ -166,18 +165,18 @@ internal class Program
                 Console.WriteLine($"{UniversityEmployee.Person.FirstName} {UniversityEmployee.Person.LastName} {UniversityEmployee.GetOfficialDuties()}");
             }
         }
-        
+
 
         //homework3
         //Создать и инициализировать объект типа University (ректор, юридический адрес, сотрудники, здания)
 
-        Teacher bondarenko = new
-           Teacher (new Person("Aleksandr", "Bondarenko ",
+        Teacher bondar = new
+           Teacher(new Person("Aleks", "Bondar",
            new Adress("Minsk", "Lesnaya", 15, 18)), 4525,
            new Course("Math", "Theory"));
-        
+
         Teacher golovkoO = new
-           Teacher (new Person("Oleg", "Golovko ",
+           Teacher(new Person("Oleg", "Golovko ",
            new Adress("Minsk", "Svobody", 22, 14)), 2234,
            new Course("Teoretical Mechanic", "TMM"));
 
@@ -188,17 +187,19 @@ internal class Program
 
 
         SupportStaff kiselev = new
-            SupportStaff (new Person("Anatoly", "Kiselev",
+            SupportStaff(new Person("Anatoly", "Kiselev",
             new Adress("Zhodino", "Pobedy", 15, 12)), 4556, "Rector");
 
         List<UniversityEmployee> employees = new List<UniversityEmployee>
         {
-        bondarenko,
+        bondar,
         golovkoO,
-        golovkoI,
-        kiselev
+        kiselev,
+        golovkoI
         };
-        
+
+
+
         AdressBuilding officialAdrss = new
             ("Minsk",
             "Matusevicha",
@@ -213,23 +214,23 @@ internal class Program
             24);
 
         Building building1 = new Building(new List<Room>{
-            new(1, "Auxiliary room"), 
+            new(1, "Auxiliary room"),
             new(2, "Lecture hall"),
             new(5, "Laboratory"),
             new(4, "Suminar room")}, officialAdrss, 234);
-    
+
         Building building2 = new Building(new List<Room>{
             new(1, "Laboratory"),
             new(3, "Lecture hall"),
             new(5, "Lecture hall"),
             new(2, "Suminar room")}, adressBuilding2, 235);
-        
+
         Building building3 = new Building(new List<Room>{
             new(3, "Auxiliary room"),
             new(9, "Lecture hall"),
-            new(5, "Laboratory"), 
+            new(5, "Laboratory"),
             new(7, "Lecture hall")}, adressBuilding3, 236);
-        
+
         List<Building> buildings = new List<Building>
         {
         building1,
@@ -243,16 +244,17 @@ internal class Program
             buildings,
             officialAdrss);
 
+        Console.WriteLine("".PadRight(80, '-'));
         Console.WriteLine(university.Rector.Person.LastName);
         Console.ReadLine();
 
 
-//homework4
-//Для всех сущностей проекта, использующих  массивы, перейти к использованию  List
-//homework5
-//5.1 Вывести на экран всех сотрудников университета с фамилией,//начинающейся на определенную букву (по выбору).
-//Данный список должен быть отсортирован поTaxId сотрудника 
-
+        //homework4
+        //Для всех сущностей проекта, использующих  массивы, перейти к использованию  List
+        //homework5
+        //5.1 Вывести на экран всех сотрудников университета с фамилией,//начинающейся на определенную букву (по выбору).
+        //Данный список должен быть отсортирован поTaxId сотрудника 
+        Console.WriteLine("".PadRight(80, '-'));
         Console.WriteLine("Lastname start with S:");
         var selectedEmployee = new List<UniversityEmployee>();
         selectedEmployee = universityEmployees
@@ -267,17 +269,18 @@ internal class Program
         //5.2Вывести на экран всех преподавателей университета, читающих определенный курс  (по выбору., один и тот
         //же курс может читаться несколькими преподавателями).
 
+        Console.WriteLine("".PadRight(80, '-'));
         Console.WriteLine("Teachers  reading a course in theoretical mechanics:");
         var courseEmployee = new List<UniversityEmployee>();
         courseEmployee = universityEmployees
              .Where(p => p is Teacher teacher && teacher.Course.NameCourse == "theoretical mechanics")
-    .ToList();
+             .ToList();
 
         foreach (UniversityEmployee employee in courseEmployee)
         {
             Console.WriteLine($"{employee.Person.FirstName} {employee.Person.LastName}");
         }
-//5.3 Вывести на экран TaxID и должностные обязанности каждого сотрудника (только эту информацию)
+        //5.3 Вывести на экран TaxID и должностные обязанности каждого сотрудника (только эту информацию)
         Console.WriteLine("TaxId and responsibilities:");
 
         var SortResponsibilitiesList = employees
@@ -290,7 +293,7 @@ internal class Program
             Console.WriteLine(taxIdResponsibilities);
         }
         //5.4 Вывести на экран адреса всех зданий, в который есть комната с определенным номером (по выбору)
-
+        Console.WriteLine("".PadRight(80, '-'));
         Console.WriteLine("Buildings with number room 3:");
 
         var SortBuildings = new List<Building>();
@@ -307,7 +310,8 @@ internal class Program
         }
 
         //5.5 Вывести на экран адрес здания с максимальным количеством комнат в нем
-        Console.WriteLine("building with  maximum count of rooms:");
+        Console.WriteLine("".PadRight(80, '-'));
+        Console.WriteLine("Building with  maximum count of rooms:");
         var largestBuildings = buildings
 
             .Where(p => p.Rooms.Count == buildings.Select(x => x.Rooms.Count)
@@ -317,14 +321,83 @@ internal class Program
         {
             Console.WriteLine($"{building.AddressBulding.City} {building.AddressBulding.Street} {building.AddressBulding.BuildingNumber}");
         }
+        Console.WriteLine("".PadRight(80, '-'));
 
         //5.6 Вывести на экран самую часто встречающуюся фамилию сотрудника, и число таких сотрудников
-        Console.WriteLine("the most popular lastname of the employee, and quantity employees:");
+
+        Console.WriteLine("The most popular lastname of the employee, and quantity employees:");
         var mostPopularLastName = employees
             .GroupBy(p => p.Person.LastName)
             .MaxBy(x => x.Count());
 
         Console.WriteLine($"{mostPopularLastName.Key} {mostPopularLastName.Count()}");
+
+        // 6.1 Реализовать проверку TaxId в конструкторе Employee, если TaxId меньше 0 - выбрасывать ArgumentException  
+        try
+        {
+            Teacher semenov = new
+           Teacher(new Person("Petr", "Semenov ", new Adress("Minsk", "Prytyckogo", 11, 19)),
+                  -1234,
+                   new Course("Informatics", "introduction"));
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
+            Console.WriteLine("".PadRight(80, '-'));
+            //6.2 Реализовать проверку длины имени и фамилии сотрудника, если суммарная длина имени и фамилии больше
+            //15 символов- выбрасывать ArgumentException  
+        }
+            try
+            {
+
+            Teacher pekarskij = new
+            Teacher(new Person("Pavellllllll", "Pekarskij ", new Adress("Minsk", "Matusevicha", 1, 9)),
+                            5555,
+                             new Course("Informatics", "QA"));
+
+        }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        Console.WriteLine("".PadRight(80, '-'));
+        //6.3 *Отсортировать список сотрудников по суммарной длине имени и фамилии по убыванию тремя способами:
+        //методом Sort():
+
+        employees.Sort((x, y) => (x.Person.SummaryNameLength())
+        .CompareTo((y.Person.SummaryNameLength())));
+        employees.Reverse();
+
+        foreach (var e in employees)
+        {
+            Console.WriteLine($"{e.Person.FirstName}  {e.Person.LastName}");
+        }
+
+        Console.WriteLine("".PadRight(80, '-'));
+        
+        //методом LINQ OrderBy().
+
+        var SortSummaryName = employees
+            .OrderByDescending(n => n.Person.SummaryNameLength())
+            .ToList();
+
+        foreach (UniversityEmployee universityEmployee in SortSummaryName)
+        {
+            Console.WriteLine($"{universityEmployee.Person.FirstName} {universityEmployee.Person.LastName}");
+        }
+        Console.WriteLine("".PadRight(80, '-'));
+       
+        //методом Sort(IComparer) (реализовать интерфейс IComparable в классе Employee):
+
+        employees.Sort();
+        employees.Reverse();
+
+        foreach (var x in employees)
+        {
+           
+            Console.WriteLine($"{x.Person.FirstName}  {x.Person.LastName}");
+        }
+
 
     }
 }
