@@ -15,14 +15,12 @@
         }
         public bool AddRoom(Room room)
         {
-            foreach (var Room in Rooms)
+            if (Rooms.Contains(room))
             {
-                if (room.Equals(Room))
-                {
-                    return false;
-                }
-                Rooms.Add(room);
+                return false;
             }
+            Rooms.Add(room);
+            
             return true;
         }
 
