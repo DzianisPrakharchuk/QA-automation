@@ -39,7 +39,7 @@ public class AdressBuilding
     }
     public override int GetHashCode()
     {
-        return City.GetHashCode() + Street.GetHashCode() + _buildingNumber.GetHashCode();
+        return City.GetHashCode() + Street.GetHashCode() + _buildingNumber;
     }
 }
 

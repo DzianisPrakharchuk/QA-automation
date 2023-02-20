@@ -1,12 +1,37 @@
-﻿namespace homework3;
+﻿using System.Data;
 
-internal abstract class UniversityEmployee
+namespace homework3;
+
+internal abstract class UniversityEmployee: IComparable<UniversityEmployee>,IComparer<UniversityEmployee>
 {
     public Person Person { get; set; }
     public string Profession { get; set; }
-    public int TaxId { get; set; }
+    private int _taxId;
+
+    public int TaxId 
+    {
+        get
+        {
+            return _taxId;
+        } 
+        set {
+            if (value < 0)
+            {
+                throw new ArgumentException("Incorrect taxId");
+            }
+            _taxId = value;
+        }
+    }
     public UniversityEmployee(Person person, int taxId, string profession)
     {
+        if (person == null)
+        {
+            throw new ArgumentNullException(nameof(person));
+        }
+        if (person.FirstName.Length + person.LastName.Length > 20)
+        {
+            throw new ArgumentException("Full name length > 20");
+        }
         Person = person;
         Profession = profession;
         TaxId = taxId;
@@ -25,6 +50,20 @@ internal abstract class UniversityEmployee
     public override int GetHashCode()
     {
         return TaxId.GetHashCode();
+    }
+
+    public int CompareTo(UniversityEmployee? x)
+    {
+        if (x == null)
+        {
+            return 1;
+        }
+
+        return Person.SummaryNameLength() - x.Person.SummaryNameLength();
+    }
+    public int Compare(UniversityEmployee? x, UniversityEmployee? y)
+    {
+        return (x?.Person.SummaryNameLength() ?? 0) - (y?.Person.SummaryNameLength() ?? 0);
     }
 }
 

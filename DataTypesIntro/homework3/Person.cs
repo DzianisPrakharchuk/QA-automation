@@ -29,4 +29,9 @@ public class Person
     {
         return FirstName.GetHashCode() + LastName.GetHashCode() + Adress.GetHashCode();
     }
+
+    public int SummaryNameLength()
+    {
+        return FirstName.Length + LastName.Length;
+    }
 }
