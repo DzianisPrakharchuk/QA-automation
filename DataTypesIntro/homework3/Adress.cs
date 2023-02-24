@@ -44,6 +44,21 @@
             _houseNumber = houseNumber;
             _flatNumber = flatNumber;
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj != null && obj is Adress adress)
+            {
+                return City == adress.City
+                    && Street == adress.Street 
+                    && _houseNumber == adress._houseNumber 
+                    && _flatNumber == adress._flatNumber;
+            }
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return City.GetHashCode() + Street.GetHashCode() + _houseNumber.GetHashCode() + _flatNumber.GetHashCode();
+        }
     }
 }
 

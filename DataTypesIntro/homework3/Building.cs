@@ -2,10 +2,10 @@
 {
     internal class Building : UniversityAssets
     {
-        public Room[] Rooms { get; set; }
+        public List<Room> Rooms { get; set; }
         public AdressBuilding AddressBulding { get; set; }
         public Building(
-            Room[] rooms,
+            List<Room> rooms,
             AdressBuilding addressBulding,
             int idNumber)
         : base(idNumber)
@@ -13,6 +13,31 @@
             Rooms = rooms;
             AddressBulding = addressBulding;
         }
+        public bool AddRoom(Room room)
+        {
+            if (Rooms.Contains(room))
+            {
+                return false;
+            }
+            Rooms.Add(room);
+            
+            return true;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj != null && obj is Building building)
+            {
+                return AddressBulding == building.AddressBulding 
+                    && IdNumber == building.IdNumber;
+            }
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return AddressBulding.GetHashCode();
+        }
+        
     }
 }
 

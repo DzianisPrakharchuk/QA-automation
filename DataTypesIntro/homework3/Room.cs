@@ -1,9 +1,9 @@
 ﻿namespace homework3;
 
- internal class Room
+internal class Room
 {
     private int _roomNumber;
-        public int RoomNumber
+    public int RoomNumber
     {
         get
         {
@@ -17,11 +17,24 @@
             }
         }
     }
-        public string RoomType { get; set; }
-        public Room(int number, string type)
-        {
-            _roomNumber = number;
-            RoomType = type;
-        }
+    public string RoomType { get; set; }
+    public Room(int number, string type)
+    {
+        _roomNumber = number;
+        RoomType = type;
     }
+    public override bool Equals(object? obj)
+    {
+        if (obj != null && obj is Room room)
+        {
+            return _roomNumber == room._roomNumber 
+                && RoomType == room.RoomType;
+        }
+        return false;
+    }
+    public override int GetHashCode()
+    {
+        return _roomNumber.GetHashCode() + RoomType.GetHashCode();
+    }
+}
 
