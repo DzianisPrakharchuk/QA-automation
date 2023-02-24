@@ -18,7 +18,7 @@
                 if (value >= MinHouseNumber && value <= MaxHouseNumber)
                 {
                     _houseNumber = value;
-                }
+                }          
             }
         }
         private int _flatNumber;
@@ -41,8 +41,8 @@
         {
             City = city;
             Street = street;
-            _houseNumber = houseNumber;
-            _flatNumber = flatNumber;
+            HouseNumber = houseNumber;
+            FlatNumber = flatNumber;
         }
         public override bool Equals(object? obj)
         {

@@ -2,7 +2,7 @@
 
 namespace homework3;
 
-internal abstract class UniversityEmployee: IComparable<UniversityEmployee>,IComparer<UniversityEmployee>
+public abstract class UniversityEmployee: IComparable<UniversityEmployee>,IComparer<UniversityEmployee>
 {
     public Person Person { get; set; }
     public string Profession { get; set; }
