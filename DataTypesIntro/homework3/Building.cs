@@ -1,6 +1,6 @@
 ﻿namespace homework3
 {
-    internal class Building : UniversityAssets
+    public class Building : UniversityAssets
     {
         public List<Room> Rooms { get; set; }
         public AdressBuilding AddressBulding { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace homework3;
 
-internal class Room
+public class Room
 {
     private int _roomNumber;
     public int RoomNumber
@@ -20,7 +20,7 @@ internal class Room
     public string RoomType { get; set; }
     public Room(int number, string type)
     {
-        _roomNumber = number;
+        RoomNumber = number;
         RoomType = type;
     }
     public override bool Equals(object? obj)

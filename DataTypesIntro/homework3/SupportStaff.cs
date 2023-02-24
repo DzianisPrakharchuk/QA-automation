@@ -1,7 +1,7 @@
 ﻿
 namespace homework3;
 
-internal class SupportStaff :  UniversityEmployee
+public class SupportStaff :  UniversityEmployee
 {
     public SupportStaff(Person person, int taxId, string profession) : base(person, taxId, profession)
     {

@@ -1,6 +1,6 @@
 ﻿namespace homework3;
 
-internal class University
+public class University
 {
     public SupportStaff Rector { get; set; }
     public List<UniversityEmployee> Employees { get; private set; }
@@ -18,29 +18,27 @@ internal class University
         this.OfficialAdress = officialAdress;
 
     }
+
+
     public bool AddBuilding(Building building)
     {
-        foreach (var Building in Buildings)
-        {
-            if (building.Equals(Building))
+        if (Buildings.Contains(building))
             {
                 return false;
             }
             Buildings.Add(building);
-        }
+        
         return true;
     }
 
     public bool AddEmployee(UniversityEmployee employee)
     {
-        foreach (var UniversityEmployee in Employees)
-        {
-            if (employee.Equals(UniversityEmployee))
+            if (Employees.Contains(employee))
             {
                 return false;
             }
             Employees.Add(employee);
-        }
+        
             return true;
     }
     public override bool Equals(object? obj)

@@ -1,6 +1,6 @@
 ﻿namespace homework3;
 
-internal class Teacher : UniversityEmployee
+public class Teacher : UniversityEmployee
 {
     public Course Course { get; set; }
     public Teacher(Person person, int taxId, Course course) : base(person, taxId, "")
